@@ -2,6 +2,12 @@
 version: '3.7'
 
 services:
+  generator:
+    image: wazuh/wazuh-certs-generator:0.0.1
+    hostname: wazuh-certs-generator
+    volumes:
+      - ./config/wazuh_indexer_ssl_certs/:/certificates/
+      - ./config/certs.yml:/config/certs.yml
   wazuh.manager:
     image: wazuh/wazuh-manager:4.8.0
     hostname: wazuh.manager
